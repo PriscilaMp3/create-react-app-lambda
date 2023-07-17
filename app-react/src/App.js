@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, {useState} from "react";
+import Agregar from "./componentes/agregarlista";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Tarea from "./componentes/btnagregar";
+
 
 function App() {
+ 
+  const toggle = () =>
+  setModal (modal);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Agregar />
+      <Tarea toggle={toggle} modal={modal}/>
     </div>
+   
+    
   );
 }
 
