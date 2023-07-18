@@ -1,20 +1,18 @@
 import "./App.css";
-import React, {useState} from "react";
-import Agregar from "./componentes/agregarlista";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Tarea from "./componentes/btnagregar";
+import Agregarlista from "./componentes/agregarlista";
+
 
 
 function App() {
+
+
  
-  const toggle = () =>
-  setModal (modal);
+  
 
   return (
     <div className="App">
-      <Agregar />
-      <Tarea toggle={toggle} modal={modal}/>
+      <Agregarlista/>
     </div>
    
     
