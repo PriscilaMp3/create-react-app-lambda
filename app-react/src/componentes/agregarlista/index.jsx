@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Form from "../form";
 const Agregarlista = () => {
   const [Tarea, setTarea] = useState([]); //actualización del estado elemento mediante el hook //
   const cuentaCompleta = Tarea.filter(
@@ -7,11 +7,6 @@ const Agregarlista = () => {
   ).length; //variable que contiene el elemento si esta completado
   const [formData, setFormData] = useState({ titulo: "", descripcion: "" }); //actualización del estado elemento mediante el hook //
   const [TareaEditId, setTareaEditId] = useState(null); //actualización del estado elemento mediante el hook  con valor nullo //
-
-  // const [modalEliminar, setModalEliminar] = useState({
-  //   isOpen: false,
-  //    todo: {}
-  //  })
 
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
@@ -65,25 +60,11 @@ const Agregarlista = () => {
 
   return (
     <div className="container w-75">
-      <form className="input-group shadow rounded p-3" onSubmit={agregarTarea}>
-        <input
-          className="form-control"
-          type="text"
-          name="titulo"
-          placeholder="Titulo"
-          value={formData.titulo}
-          onChange={handleChange}
-        />
-        <input
-          className="form-control"
-          type="text"
-          name="descripcion"
-          placeholder="Descripción"
-          value={formData.descripcion}
-          onChange={handleChange}
-        />
-        <input className="btn btn-primary" type="submit" value="Agregar todo" />
-      </form>
+      <Form
+        change={handleChange}
+        formData={formData}
+        handleSubmit={agregarTarea}
+      />
 
       <div className="shadow rounded p-3 mt-5 w-100">
         <div className="d-flex align-items-center justify-content-between list-group-item">
@@ -137,16 +118,6 @@ const Agregarlista = () => {
           </span>
         </div>
       </div>
-
-      {/* <Modal isOpen={modalEliminar.isOpen} onClose={() => setModalEliminar({isOpen: false, todo: {}})}>
-        <div className='container text-center py-5'>
-          <h4>¿Desea eliminar la tarea '{modalEliminar.todo.titulo}'?</h4>
-          <div className='w-100 d-flex justify-content-center mt-2'>
-            <button className='btn btn-danger mx-1' onClick={() => deleteTodo(modalEliminar.todo.id)}>Si, si elimnar tarea</button>
-            <button className='btn btn-success mx-1' onClick={() => setModalEliminar({isOpen: false, todo: {}})}>NO, no eliminar tarea</button>
-          </div>
-        </div>
-      </Modal> */}
     </div>
   );
 };
